@@ -1,16 +1,15 @@
-import Link from 'next/link'
+'use client'
+
+import { Box } from "@chakra-ui/react"
+import { Section } from '../section'
 
 export default function WelcomeSectionSummary() {
-  return (
-    <>
-      <h1>Welcome!</h1>
-      <h2>
-        <div>Isaac Valdez</div>
-        <div>Web developer</div>
-      </h2>
-      <p>
-        I develop custom web applications and components like (example)!
-      </p>
-    </>
-  )
+    return (
+        <Section header="Welcome!">
+            <Box fontSize="md"><strong>Isaac Valdez</strong> Web developer</Box>
+            <p>
+                I develop custom web applications and components like (example)!
+            </p>
+        </Section>
+    )
 }

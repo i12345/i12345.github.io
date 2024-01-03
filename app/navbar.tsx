@@ -1,10 +1,12 @@
 "use client";
 
+import { Button, ButtonGroup, Flex, Heading, Link, Spacer } from "@chakra-ui/react";
 import { usePathname, useSelectedLayoutSegment, useSelectedLayoutSegments } from "next/navigation"
 import React from "react"
 
 const navMenu = {
-    home: "/",
+    title: "Isaac Valdez",
+    home: "Portfoilio",
     sections: [
         {
             name: "Education",
@@ -26,15 +28,15 @@ const navMenu = {
 } as const
 
 export function NavBar(): React.ReactElement {
-    const url = usePathname()
-    
     return (
-        <span>
-            <div>
-                <h2>Isaac Valdez</h2>
-                Web developer
-            </div>
-            <div>path = {url}</div>
-        </span>
+        <Flex minWidth='max-content' align="bottom" p={2} gap={2} bg="blue.50" backdropBlur={10}>
+            <Heading as="header" size="md">{navMenu.title}</Heading>
+            <Spacer />
+            <ButtonGroup>
+                {navMenu.sections.map(section => (
+                    <Link key={section.name} href={section.url}>{section.name}</Link>
+                ))}
+            </ButtonGroup>
+        </Flex>
     )
 }

@@ -1,12 +1,9 @@
-import Link from 'next/link'
+import { Section } from '../section'
 
 export default function EducationSectionSummary() {
-  return (
-    <>
-      <h1>Education</h1>
-      <div>
-        Back to <Link href="/#">Home</Link>
-      </div>
-    </>
-  )
+    return (
+        <Section header="Education">
+        
+        </Section>
+    )
 }

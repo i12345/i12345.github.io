@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import WelcomeSectionSummary from './(sections)/welcome/summary'
 import EducationSectionSummary from './(sections)/education/summary'

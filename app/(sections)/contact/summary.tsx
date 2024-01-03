@@ -1,12 +1,9 @@
-import Link from 'next/link'
+import { Section } from '../section'
 
 export default function ContactSectionSummary() {
-  return (
-    <>
-      <h1>Contact</h1>
-      <div>
-        
-      </div>
-    </>
-  )
+    return (
+        <Section header="Contact">
+
+        </Section>
+    )
 }
