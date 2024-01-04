@@ -7,7 +7,7 @@ export interface SectionProps extends PropsWithChildren {
 
 export const Section = forwardRef(({ header, children }: SectionProps, ref: Ref<HTMLDivElement>) => {
     return (
-        <Box ref={ref} m="1em">
+        <Box ref={ref} m="1em" as="section">
             <Heading as="h1">{header}</Heading>
             {children}
         </Box>

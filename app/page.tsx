@@ -6,25 +6,17 @@ import EducationSectionSummary from './(sections)/education/summary'
 import ProjectsSectionSummary from './(sections)/projects/summary'
 import WorkSectionSummary from './(sections)/work/summary'
 import ContactSectionSummary from './(sections)/contact/summary'
+import SkillsSectionSummary from './(sections)/skills/summary'
 
 export default function Home() {
   return (
-    <div>
-      <section id="">
-        <WelcomeSectionSummary />
-      </section>
-      <section id="education">
-        <EducationSectionSummary />
-      </section>
-      <section id="projects">
-        <ProjectsSectionSummary />
-      </section>
-      <section id="work">
-          <WorkSectionSummary />
-      </section>
-      <section id="contact">
-        <ContactSectionSummary />
-      </section>
-    </div>
+    <>
+      <WelcomeSectionSummary />
+      <EducationSectionSummary />
+      <SkillsSectionSummary />
+      <ProjectsSectionSummary />
+      <WorkSectionSummary />
+      <ContactSectionSummary />
+    </>
   )
 }
