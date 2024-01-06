@@ -19,7 +19,7 @@ export function WorkTimeline<T, Index extends WorkTimelineItemIndex<T> = WorkTim
     return (
         <Timeline align='left' isItemActive={() => false}>
           {items.map(item => (
-            <Timeline.Item key={JSON.stringify(item)}>
+            <Timeline.Item key={Object(item).toString()}>
               <Box>
                 <Box fontWeight="700">{(item as any)[index.name]}</Box>
                 <Flex flexDirection="row">
