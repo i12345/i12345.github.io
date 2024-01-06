@@ -1,5 +1,3 @@
-"use client"
-
 import 'rsuite/dist/rsuite.min.css';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -9,10 +7,10 @@ import { AffixedContainer, AffixedSide } from '../src/components/affixed-contain
 
 const inter = Inter({ subsets: ['latin'] })
 
-// export const metadata: Metadata = {
-//   title: 'Isaac Valdez',
-//   description: 'Isaac Valdez’s portfoilio',
-// }
+export const metadata: Metadata = {
+  title: 'Isaac Valdez',
+  description: 'Isaac Valdez’s portfoilio',
+}
 
 export default function RootLayout({
   children,
