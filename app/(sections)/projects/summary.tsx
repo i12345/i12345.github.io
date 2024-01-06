@@ -1,4 +1,4 @@
-import { Section } from '../section'
+import { Section } from '../../../src/components/section'
 import { WorkTimeline } from '../../../src/components/work-timeline'
 import { Link } from '@chakra-ui/next-js'
 import { ReactNode } from 'react'

@@ -1,5 +1,5 @@
 import { WorkTimeline } from '../../../src/components/work-timeline'
-import { Section } from '../section'
+import { Section } from '../../../src/components/section'
 
 interface EducationItem {
     degree: string
