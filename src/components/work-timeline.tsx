@@ -29,7 +29,7 @@ export function WorkTimeline<T, Index extends WorkTimelineItemIndex<T> = WorkTim
                 <Box>{(item as any)[index.secondSubtitle]}</Box>
                 <Stack spacing={0}>
                   {((item as any)[index.details] ?? []).map((description: ReactNode) => (
-                    <Box>{description}</Box>
+                    <Box key={String(description)}>{description}</Box>
                   ))}
                 </Stack>
               </Box>
