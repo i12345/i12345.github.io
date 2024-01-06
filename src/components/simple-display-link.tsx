@@ -1,7 +1,10 @@
+"use client"
+
 import { Link } from "@chakra-ui/next-js"
+import { StyleProps, isStyleProp } from "@chakra-ui/react"
 import * as URI from "uri-js"
 
-export interface SimpleDisplayLinkProps {
+export interface SimpleDisplayLinkProps extends StyleProps {
     uri: string
     display?: string
     isExternal?: boolean
@@ -12,7 +15,10 @@ export const defaultDomains = new Map([
     ["www.npmjs.com", "NPM"],
 ])
 
-export function SimpleDisplayLink({ uri, display, isExternal }: SimpleDisplayLinkProps) {
+export function SimpleDisplayLink(props: SimpleDisplayLinkProps) {
+    let { uri, display, isExternal } = props
+    const styleProps = Object.fromEntries(Object.entries(props).filter(([key]) => isStyleProp(key))) as StyleProps
+    
     if (!display) {
         const domain = URI.parse(uri).host
 
@@ -23,5 +29,5 @@ export function SimpleDisplayLink({ uri, display, isExternal }: SimpleDisplayLin
         }
     }
 
-    return <Link href={uri} isExternal={isExternal} mx={1}>{display ?? uri}</Link>
+    return <Link href={uri} isExternal={isExternal} {...styleProps}>{display ?? uri}</Link>
 }
