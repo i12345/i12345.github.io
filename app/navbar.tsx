@@ -1,12 +1,11 @@
 "use client";
 
-import { Button, ButtonGroup, Flex, Heading, Link, Spacer } from "@chakra-ui/react";
-import { usePathname, useSelectedLayoutSegment, useSelectedLayoutSegments } from "next/navigation"
-import React from "react"
+import { Link } from "@chakra-ui/next-js";
+import React, { forwardRef } from "react";
+import { Nav, Navbar } from "rsuite";
 
 const navMenu = {
     title: "Isaac Valdez",
-    home: "Portfoilio",
     sections: [
         {
             name: "Education",
@@ -27,16 +26,15 @@ const navMenu = {
     ]
 } as const
 
-export function NavBar(): React.ReactElement {
+export const NavBar = forwardRef<HTMLDivElement>(({ }, ref) => {
     return (
-        <Flex minWidth='max-content' align="bottom" p={2} gap={2} bg="blue.50" backdropBlur={10}>
-            <Heading as="header" size="md">{navMenu.title}</Heading>
-            <Spacer />
-            <ButtonGroup>
-                {navMenu.sections.map(section => (
-                    <Link key={section.name} href={section.url}>{section.name}</Link>
-                ))}
-            </ButtonGroup>
-        </Flex>
+        <Navbar ref={ref}>
+            <Navbar.Brand href="/" as={Link}>{navMenu.title}</Navbar.Brand>
+            <Nav>
+                {navMenu.sections.map(section => 
+                    <Nav.Item as={Link} key={section.url} href={section.url}>{section.name}</Nav.Item>
+                )}
+            </Nav>
+        </Navbar>
     )
-}
+})

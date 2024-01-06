@@ -1,20 +1,23 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { kebab } from "case";
 import { PropsWithChildren, ReactNode, Ref, forwardRef } from "react";
+import { AffixedCompensated } from "./affixed-container";
 
 export interface SectionProps extends PropsWithChildren {
     header: ReactNode
-    headerID?: string
+    sectionID?: string
 }
 
-export const Section = forwardRef(({ header, headerID, children }: SectionProps, ref: Ref<HTMLDivElement>) => {
-    headerID ??= kebab(String(header))
-    if (headerID === "")
-        headerID = undefined
-
+export const Section = forwardRef(({ header, sectionID, children }: SectionProps, ref: Ref<HTMLDivElement>) => {
+    sectionID ??= kebab(String(header))
+    if (sectionID === "")
+        sectionID = undefined
+    
     return (
-        <Box ref={ref} m="1em" as="section">
-            <Heading as="h1" id={headerID}>{header}</Heading>
+        <Box ref={ref} m="1em" id={sectionID} as="section">
+            <AffixedCompensated>
+                <Heading as="h1" mt={1}>{header}</Heading>
+            </AffixedCompensated>
             {children}
         </Box>
     )
