@@ -23,7 +23,7 @@ export function WorkTimeline<T, Index extends WorkTimelineItemIndex<T> = WorkTim
               <Box>
                 <Box fontWeight="700">{(item as any)[index.name]}</Box>
                 <Flex flexDirection="row">
-                  <Box me="1em">{(item as any)[index.subtitle]}</Box>
+                  <Box me="0.65em">{(item as any)[index.subtitle]}</Box>
                   <Box opacity="50%">{(item as any)[index.subtitleFade]}</Box>
                 </Flex>
                 <Box>{(item as any)[index.secondSubtitle]}</Box>

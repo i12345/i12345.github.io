@@ -52,7 +52,7 @@ export default function ProjectsSectionSummary() {
     const projects = projectHistory.map(project => ({
         ...project,
         name: <SimpleDisplayLink display={project.name} uri={project.links[0]} isExternal />,
-        links: <>{...project.links.map(link => <SimpleDisplayLink uri={link} key={link} mx="0.5em" isExternal />)}</>
+        links: <>{...project.links.map(link => <SimpleDisplayLink uri={link} key={link} me="0.5em" isExternal />)}</>
     }) as ProjectItemRendered)
 
     return (
