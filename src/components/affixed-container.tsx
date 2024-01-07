@@ -1,8 +1,7 @@
 "use client"
 
 import { Box } from "@chakra-ui/react";
-import { PropsWithChildren, ReactNode, createContext, forwardRef, useContext, useLayoutEffect, useRef, useState } from "react";
-import { Affix, AffixProps } from "rsuite";
+import { CSSProperties, PropsWithChildren, ReactNode, createContext, forwardRef, useContext, useLayoutEffect, useRef, useState } from "react";
 
 export enum AffixedSide {
     top = "top",
@@ -80,22 +79,28 @@ export function AffixedContainer({ affixed, side, children }: AffixedContainerPr
         }
     }, [affixRef.current, setLength])
 
-    if (side !== AffixedSide.top)
+    if (side === AffixedSide.start || side === AffixedSide.end)
         throw new Error()
 
-    const affixProps: Record<AffixedSide, AffixProps> = {
-        [AffixedSide.top]: { top: 0 },
-        [AffixedSide.bottom]: { },
-        [AffixedSide.left]: { },
-        [AffixedSide.right]: { },
-        [AffixedSide.start]: { },
-        [AffixedSide.end]: { }
+    const affixPositionCSS: Record<AffixedSide, CSSProperties> = {
+        [AffixedSide.top]: { top: 0, width: '100%' },
+        [AffixedSide.bottom]: { bottom: 0, width: '100%' },
+        [AffixedSide.left]: { left: 0, height: '100%' },
+        [AffixedSide.right]: { right: 0, height: '100%' },
+        [AffixedSide.start]: { left: 0, height: '100%' },
+        [AffixedSide.end]: { right: 0, height: '100%' }
+    }
+
+    const affixCSS: CSSProperties = {
+        ...affixPositionCSS[side],
+        position: "fixed",
+        zIndex: 10,
     }
 
     return (
         <AffixedInfoContext.Provider value={{ side, length }}>
             <>
-                <Affix children={affixed} ref={affixRef} {...affixProps[side]} />
+                <Box children={affixed} ref={affixRef} style={affixCSS} />
                 {children}
             </>
         </AffixedInfoContext.Provider>
